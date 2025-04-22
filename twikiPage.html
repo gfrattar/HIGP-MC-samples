@@ -1,0 +1,145 @@
+<!-- This is the default ATLAS template. 
+Please modify it in the sections indicated to create your topic. In particular, notice that at the bottom there are some sections that must be filled for publicly accessible pages.
+If you have any comments/complaints about this template, please email atlas-twiki-support -at- cern dot ch
+
+By default the title is the WikiWord used to create this topic.
+if you want to modify it to something more meaningful, just replace %TOPIC% below with i.e "My Topic"
+===========  you can remove the lines above ============================================= -->
+
+<table align=right>
+    <tr>
+    <th>%RESPONSIBLE%</th>
+    </tr>
+    <tr>
+    <td align="center">
+    %REVINFO{topic="%TOPIC%" "$wikiusername" rev="1.1"}%
+    </td>
+    </tr>
+    </table>
+    
+    %CERTIFY%
+    ---+!!<nop>%TOPIC%
+    %TOC%     <!-- this line is optional -->
+    %STARTINCLUDE%
+    
+    
+    *Please ensure this page is compatible with the [[AtlasComputing.DocumentationManagementTWikiRules][ATLAS Twiki Rules]]. Thank You - ATLAS !TWiki support team*
+    %BR%
+    In particular:
+       1 %RED%Page is *linked* from another TWiki page - this is natural if you create a page by introducing a new link on a page and then create the page by clicking on "?".%ENDCOLOR% Do *NOT* create pages in other ways - else the parent (listed at top of page) will be =WebPreferences=, which is not correct.
+       1 *Page name* must be a TWiki.WikiWord of the form 
+          * Uppercase letter(s), followed by
+          * Lowercase letter(s) or number(s), followed by
+          * Uppercase letter(s) 
+          * Additional lowercase or uppercase letter(s) or numbers are optional and may follow in any order.
+          * Underscore "_" and Dash "-" are not valid in the name
+       1 Pages must have an appropriate *Metadata Parent* - if you don't understand what this means, look at the [[DocumentationManagementTWikiRules#Metadata][ATLAS Twiki Rules]]. 
+       1 If there are technical problems or questions not covered on the [[AtlasComputing.ComputingDocumentationManagement][Atlas Documentation TWiki]], please contact the TWiki support group (atlas-twiki-support@cern.ch).
+    
+    
+    ---+Introduction
+    <!-- Add an introduction here, describing the purpose of this topic. --> 
+    
+      %RED%Please note that this page is still work in progress, if you have any questions please get in touch with us:
+    guglielmo.frattari@cern.ch, yanlin.liu@cern.ch
+    
+    
+    ---+ Table Contents
+    
+       * Decay channel: Higgs decay channel
+       * Description: any other production or decay process-related info
+       * Generator: names according to the [[https://gitlab.cern.ch/atlas/athena/blob/master/Generators/EvgenJobTransforms/python/EvgenConfig.py][Evgen Config conventions]] or [[https://gitlab.cern.ch/atlas/athena/blob/master/Generators/EvgenJobTransforms/share/skeleton.GENtoEVGEN.py][their short-hands]]. This is the naming schema used for central production jobOptions
+       * jobOption: links to key hard-process steering files in [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions][MC15JobOptions]]. We aim for the links to point to the exact tags with which the sample was produced (which might differ from the master branch)
+       * Statistics: reconstruction level, MC16(a+d+e)
+       * Generator XS [nb]: cross-section reported by AMI (stored to MetaData by Generate_tf unless they have been explicitly asked to be changed in AMI). This might or might not include Branching Ratio and will not include Filter Efficiency of any generator-level filters used in sample produciton
+       * XS*BR*FE [fb]: generator cross-section * Branching Ratio * Filter Efficiency:
+       * Ref. XS*BR [fb]: reference cross-section * Branching Ratio (mostly for YR4, see [[https://cds.cern.ch/record/2678867][the PMG references document]] for details)
+       * Warning: reference to pitfalls which we think you should be warned about. These are detailed directly below the tables.
+    
+    *General note*: For the Powheg samples, the Higgs group use the PDF PDF4LHC15. This prediction is typically not stored in the nominal weight (which corresponds to NNPDF3.0). The weight name "PDF set = 90400" should be used when the PDF4LHC15 prediction is the desired one. An exception to this are the ggH NNLOPs samples in which the weight name that will correspond to the prediction with the NNLO reweighting and PDF4LHC15 is called "nnlops-nominal-pdflhc"
+    
+    ---+ ggF
+    
+    ---++ Nominal
+    
+    %TWISTY{
+    mode="div"
+    showlink="Show description"
+    hidelink="Hide notes""
+    showimgleft="%ICONURLPATH{toggleopen-small}%"
+    hideimgleft="%ICONURLPATH{toggleclose-small}%"
+    }%
+    
+    The samples below are generated using Powheg NNLOPS and showered with Pyhia8. The common LHE production for these samples was requested in this [[https://its.cern.ch/jira/browse/ATLMCPROD-2738][JIRA]] and the name of the LHE container is:
+    
+    <verbatim>
+    mc15_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.evgen.TXT.e5607</verbatim>
+    
+    %ENDTWISTY%
+    
+    | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+    | ZZ*->4l | ggH | 603325 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603325/mc.PhPy8EG_PDF4LHC21_ggH125_NNLOPS_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | VBFH | 601500 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601500/mc.PhPy8EG_PDF4LHC21_VBFH125_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | WpH | 601501 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601501/mc.PhPy8EG_PDF4LHC21_WpH125J_Wincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | WmH | 601502 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601502/mc.PhPy8EG_PDF4LHC21_WmH125J_Wincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | ZH | 601503 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601503/mc.PhPy8EG_PDF4LHC21_ZH125J_Zincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | ggZH | 601504 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601504/mc.PhPy8EG_PDF4LHC21_ggZH125_Zincl_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | ttH | 601505 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601505/mc.PhPy8EG_PDF4LHC21_inclusive_ttH125_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | bbH | 601634 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601634/mc.PhPy8EG_PDF4LHC21_4FS_A14NNPDF_bbH_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | tHjb | 545634 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545634/mc.aMCPy8EG_tHjb125_4fl_ZZ4l.py][Link]] | No taus in ZZ decay |
+    | ZZ*->4l | tWH | 545637 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545637/mc.aMCPy8EG_tWH125_ZZ4l.py][Link]] | No taus in ZZ decay |
+    
+    | DSID  | Description  | Decay channel | Generator | jobOption |  AOD names | Double AOD name test | Statistics (AOD)  | Generator XS [nb] | Filter Eff. | Ref. [[LHCPhysics.CERNYellowReportPageAt13TeV][XS]]* [[LHCPhysics.CERNYellowReportPageBR][BR]] [pb] | Warning |
+    | 343981 | ggH | H-&gt;yy | Powheg+Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID343xxx/MC15.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r9364<br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r10201<br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r10724<br />%ENDTWISTY%  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r9364<br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r10201<br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r10724<br />%ENDTWISTY%  | 18276000 | 2.8300E-02  | 1.0000E+00 | 48.52*2.270E-03  | |
+    | 345316 | ggH | H-&gt;Zy | Powheg+Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID345xxx/MC15.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r9364<br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r10201<br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r10724<br />%ENDTWISTY%  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r9364<br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r10201<br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r10724<br />%ENDTWISTY%  | 1796000 | 2.8305E-02  | 1.0000E+00 | 48.68*1.541E-03  | |
+    Some analyses are more sensitive to the description by the MC of the second jet. In those cases a Madgraph merged sample with up to 2 additional partons at NLO is more appropriate.
+    
+    Warnings: <br />
+    [1]: These samples are not nominal samples and just used for comparison
+    
+    Notes: <br />
+    To get the NNLOPs reweighted description, the weight with name nnlops-nominal-pdflhc should be used
+    
+    
+    ---++ Systematics
+    ---+++ Herwig shower
+    
+    Only setups found using a recent version of Herwig &gt;= 7.1.3 are listed
+    
+    | DSID  | Description  | Decay channel | Generator | jobOption |  AOD names | Statistics (AOD)  | Generator XS [nb] | Filter Eff.  | Ref. [[LHCPhysics.CERNYellowReportPageAt13TeV][XS]]* [[LHCPhysics.CERNYellowReportPageBR][BR]] [pb] | Warning |
+    | 346797 | ggH | H-&gt;yy | Powheg+H7 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID346xxx/MC15.346797.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_gamgam.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.346797.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e7928_s3126_r9364<br />mc16_13TeV.346797.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e7928_s3126_r10201<br />mc16_13TeV.346797.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e7928_s3126_r10724<br />%ENDTWISTY%  | 18264000 | 2.8301E-02  | 1.0000E+00 | XX  | |
+    | 346446 | ggH | H-&gt;4l(notau) | Powheg+H7 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID346xxx/MC15.346446.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_ZZ4l_noTau.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.346446.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_ZZ4l_noTau.recon.AOD.e7320_s3126_r10724<br />%ENDTWISTY%  | 966000 | 2.8306E-02  | 1.0000E+00 | XX  | |
+    | 346802 | ggH | H-&gt;WW-&gt;2l2nu(notau) | Powheg+H7 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID346xxx/MC15.346802.PhH7EG_NNLOPS_nnlo_30_ggH125_WWlvlv_noTau.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.346802.PhH7EG_NNLOPS_nnlo_30_ggH125_WWlvlv_noTau.recon.AOD.e7889_s3126_r9364<br />mc16_13TeV.346802.PhH7EG_NNLOPS_nnlo_30_ggH125_WWlvlv_noTau.recon.AOD.e7889_s3126_r10201<br />mc16_13TeV.346802.PhH7EG_NNLOPS_nnlo_30_ggH125_WWlvlv_noTau.recon.AOD.e7889_s3126_r10724<br />%ENDTWISTY%  | 7290000 | 2.8301E-02  | 4.9243E-01 | XX  | |
+    | 600565 | ggH | H-&gt;tautau-&gt;hphm | Powheg+Herwig7 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/tree/master/600xxx/600565/mc.PhH7EG_ggH125_tautauh30h20_ShowerSys_fix.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.600565.PhH7EG_ggH125_tautauh30h20_ShowerSys_fix.recon.AOD.e8231_s3126_r9364<br />mc16_13TeV.600565.PhH7EG_ggH125_tautauh30h20_ShowerSys_fix.recon.AOD.e8231_s3126_r10201<br />mc16_13TeV.600565.PhH7EG_ggH125_tautauh30h20_ShowerSys_fix.recon.AOD.e8231_s3126_r10724<br />%ENDTWISTY%  | 6888000 | 2.8295E-02  | 4.4814E-01 | XX  | |
+    | 600566 | ggH | H-&gt;tautau-&gt;lplm | Powheg+Herwig7 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/tree/master/600xxx/600566/mc.PhH7EG_ggH125_tautaul13l7_ShowerSys_fix.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.600566.PhH7EG_ggH125_tautaul13l7_ShowerSys_fix.recon.AOD.e8231_s3126_r9364<br />mc16_13TeV.600566.PhH7EG_ggH125_tautaul13l7_ShowerSys_fix.recon.AOD.e8231_s3126_r10201<br />mc16_13TeV.600566.PhH7EG_ggH125_tautaul13l7_ShowerSys_fix.recon.AOD.e8231_s3126_r10724<br />%ENDTWISTY%  | 2407000 | 2.8297E-02  | 4.3273E-01 | XX  | |
+    | 600567 | ggH | H-&gt;tautau-&gt;lphm | Powheg+Herwig7 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/tree/master/600xxx/600567/mc.PhH7EG_ggH125_ttlp15hm20_ShowerSys_fix.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.600567.PhH7EG_ggH125_ttlp15hm20_ShowerSys_fix.recon.AOD.e8231_s3126_r9364<br />mc16_13TeV.600567.PhH7EG_ggH125_ttlp15hm20_ShowerSys_fix.recon.AOD.e8231_s3126_r10201<br />mc16_13TeV.600567.PhH7EG_ggH125_ttlp15hm20_ShowerSys_fix.recon.AOD.e8231_s3126_r10724<br />%ENDTWISTY%  | 2369000 | 2.8296E-02  | 1.6416E-01 | XX  | |
+    | 600568 | ggH | H-&gt;tautau-&gt;lmhp | Powheg+Herwig7 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/tree/master/600xxx/600568/mc.PhH7EG_ggH125_ttlm15hp20_ShowerSys_fix.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.600568.PhH7EG_ggH125_ttlm15hp20_ShowerSys_fix.recon.AOD.e8231_s3126_r9364<br />mc16_13TeV.600568.PhH7EG_ggH125_ttlm15hp20_ShowerSys_fix.recon.AOD.e8231_s3126_r10201<br />mc16_13TeV.600568.PhH7EG_ggH125_ttlm15hp20_ShowerSys_fix.recon.AOD.e8231_s3126_r10724<br />%ENDTWISTY%  | 6376000 | 2.8295E-02  | 1.6422E-01 | XX  | |
+    
+    ---+++ MadGraph FxFx
+    | DSID  | Description  | Decay channel | Generator | jobOption |  AOD names | Statistics (AOD)  | Generator XS [nb] | Filter Eff.  | Ref. [[LHCPhysics.CERNYellowReportPageAt13TeV][XS]]* [[LHCPhysics.CERNYellowReportPageBR][BR]] [pb] | Warning |
+    | 345944 | ggH | H-&gt;yy | aMC@NLO+Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID345xxx/MC15.345944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.recon.AOD.e6714_s3126_r9364<br />mc16_13TeV.34\
+    5944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.recon.AOD.e7955_s3126_r9364<br />mc16_13TeV.345944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.recon.AOD.e6714_s3126_r10201<br />mc16_13TeV.345944.aMcAtNloPy8EG_A14NNPDF23LO_p\
+    px0yy_FxFx_Np012_SM.recon.AOD.e7955_s3126_r10201<br />mc16_13TeV.345944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.recon.AOD.e7955_s3126_r10724<br />%ENDTWISTY%  | 18101000 | 5.1430E-05  | 1.0000E+00 | XX  | |
+    | 344158 | ggH | H-&gt;4l | aMC@NLO+Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID344xxx/MC15.344158.aMcAtNloPythia8EvtGen_A14NNPDF23LO_ppx0_FxFx_Np012_SM.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.344158.aMcAtNloPythia8EvtGen_A14NNPDF23LO_ppx0_FxFx_Np012_SM.recon.AOD.e5403_s3126_r9364<br />mc16_13TeV.344158.aMcAtNloPythia8EvtGen_A14NNPDF23LO_ppx0_FxFx_Np012_SM.recon.AOD.e5403_s3126_r10201<br />mc16_13TeV.344158.aMcAtNloPythia8EvtGen_A14NNPDF23LO_ppx0_FxFx_Np012_SM.recon.AOD.e5403_s3126_r10724<br />%ENDTWISTY%  | 1350000 | 4.1138E-06  | 1.0000E+00 | XX  | |
+    | 345697 | ggH | H-&gt;tautau | MadGraph +Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID345xxx/MC15.345697.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaullNp2.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345697.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaullNp2.recon.AOD.e6529_s3126_r9364<br />mc16_13TeV.345697.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaullNp2.recon.AOD.e6529_s3126_r10201<br />mc16_13TeV.345697.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaullNp2.recon.AOD.e6529_s3126_r10724<br />%ENDTWISTY%  | 2367000 | 3.3532E-02  | 5.3070E-02 | XX  | |
+    | 345698 | ggH | H-&gt;tautau | MadGraph +Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSI<span class=][ D345xxx/MC15.345698.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaulhNp2.py"&gt;Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345698.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaulhNp2.recon.AOD.e6529_s3126_r9364<br />mc16_13TeV.345698.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaulhNp2.recon.AOD.e6529_s3126_r10201<br />mc16_13TeV.345698.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaulhNp2.recon.AOD.e6529_s3126_r10724<br />%ENDTWISTY%  | 1498000 | 3.3539E-02  | 1.5050E-01 | XX  | |
+    | 345699 | ggH | H-&gt;tautau | MadGraph +Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID345xxx/MC15.345699.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautauhhNp2.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345699.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautauhhNp2.recon.AOD.e6529_s3126_r9364<br />mc16_13TeV.345699.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautauhhNp2.recon.AOD.e6529_s3126_r10201<br />mc16_13TeV.345699.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautauhhNp2.recon.AOD.e6529_s3126_r10724<br />%ENDTWISTY%  | 1085000 | 3.3522E-02  | 1.8979E-01 | XX  | |
+    
+    
+    <!-- *********************************************************** -->
+    <!-- Do NOT remove the remaining lines, but add requested info as appropriate -->
+    <!-- *********************************************************** -->
+    
+    -----
+    <!-- For significant updates to the topic, consider adding your 'signature' (beneath this editing box) -->
+    *Major updates*:%BR%
+    -- Main.ArelyCG - 2025-04-16
+    
+    <!-- Person responsible for the page: 
+    Either leave as is - the creator's name will be inserted; 
+    Or replace the complete REVINFO tag (including percentages symbols) with a name in the form Main.TwikiUsersName -->
+    %RESPONSIBLE% %REVINFO{"$wikiusername" rev="1.1"}% %BR%
+    <!-- Once this page has been reviewed, please add the name and the date e.g. Main.StephenHaywood - 31 Oct 2006 -->
+    %REVIEW% *Never reviewed*
+    
+    %STOPINCLUDE%
