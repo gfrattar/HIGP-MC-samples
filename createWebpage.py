@@ -27,11 +27,5 @@ if __name__ == "__main__":
     
 '''
 Notes on the webpage development:
-* add alternative HZZ samples (Herwig)
-* add HZZ samples with tau decays --> need to find the EVNTs
-* add Hmumu samples 
-* add a section where it is explained the generation of events: LHE files using job options, split per batch and then showered by subgroups
-* add a section where the standard setup of LHE files is described (accuracy, PDF sets and so on)
-* add a section for alternative samples (alternative PS or decay generator)
-* start to integrate NRML samples as well
+* add samples from other subgroups when available
 '''
