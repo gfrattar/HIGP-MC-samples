@@ -21,111 +21,163 @@ if you want to modify it to something more meaningful, just replace %TOPIC% belo
     ---+!!<nop>%TOPIC%
     %TOC%     <!-- this line is optional -->
     %STARTINCLUDE%
+
     
-    
-    *Please ensure this page is compatible with the [[AtlasComputing.DocumentationManagementTWikiRules][ATLAS Twiki Rules]]. Thank You - ATLAS !TWiki support team*
-    %BR%
-    In particular:
-       1 %RED%Page is *linked* from another TWiki page - this is natural if you create a page by introducing a new link on a page and then create the page by clicking on "?".%ENDCOLOR% Do *NOT* create pages in other ways - else the parent (listed at top of page) will be =WebPreferences=, which is not correct.
-       1 *Page name* must be a TWiki.WikiWord of the form 
-          * Uppercase letter(s), followed by
-          * Lowercase letter(s) or number(s), followed by
-          * Uppercase letter(s) 
-          * Additional lowercase or uppercase letter(s) or numbers are optional and may follow in any order.
-          * Underscore "_" and Dash "-" are not valid in the name
-       1 Pages must have an appropriate *Metadata Parent* - if you don't understand what this means, look at the [[DocumentationManagementTWikiRules#Metadata][ATLAS Twiki Rules]]. 
-       1 If there are technical problems or questions not covered on the [[AtlasComputing.ComputingDocumentationManagement][Atlas Documentation TWiki]], please contact the TWiki support group (atlas-twiki-support@cern.ch).
-    
-    
-    ---+Introduction
+---+Introduction
     <!-- Add an introduction here, describing the purpose of this topic. --> 
+    This webpage collects all the mc23 Higgs and Di-Higgs Monte Carlo samples available. If you are aware of samples not being tracked in this TWiki, please let the HIGP PMG contacts know (guglielmo.frattari@cern.ch, yanlin.liu@cern.ch),
+    and we will update the list.    
     
-      %RED%Please note that this page is still work in progress, if you have any questions please get in touch with us:
-    guglielmo.frattari@cern.ch, yanlin.liu@cern.ch
+---+ Single Higgs samples description
+    For Run 3 single Higgs MC samples, the paradigm with which samples are generated changed. In Run 2 one set of LHE files was generated keeping the Higgs boson undecayed, and the various EVNT were produced by perfoming the Higgs boson decay and the parton showering. Following the discussion hold in the Higgs group, it was decided for Run 3 to generate multiple batches of LHE files - using the same job options - for each Higgs boson production mode. Each batch is then assigned for an Higgs boson decay mode, making the different MC samples statistically independent.
+    For more details, please check [[https://indico.cern.ch/event/1387488/contributions/5838070/attachments/2809604/4903318/20240229_higgsMC.pdf][this presentation]].
+
+    Single Higgs boson samples are generated at NLO QCD using PowhegBox v2 for all the production modes, except for tHjb and tWH production, for which Madgraph aMCatNLO is used. For further details, please refer to the job options collected in the table below. 
+    The nominal PDF set used in generation is PDF4LHC21.
+
+    |Production mode | Generator used | Generation accuracy | Job options | Notes |
+    | Gluon-gluon fusion | PowhegBox v2 | NNLO QCD (Reweighted from NLO QCD using NNLOPS) | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603279/mc.Ph_PDF4LHC21_ggH125_NNLOPS_HGam_batch1_LHE.py?ref_type=heads][Link]] | - |
+    | Vector-boson fusion | PowhegBox v2 | NLO QCD | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603222/mc.Ph_PDF4LHC21_VBFH125_HGam_batch1_LHE.py][Link]] | - |
+    | qq/qg->Z(lep)H+j | PowhegBox v2 | NLO QCD (MiNLO) | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603261/mc.Ph_PDF4LHC21_qqZllH125_VpTbias_HWW_batch1_LHE.py][Link]] | Generation cross-section biased in V pT |
+    | qq/qg->W^(-)(lep)H+j | PowhegBox v2 | NLO QCD (MiNLO) | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603235/mc.Ph_PDF4LHC21_WpH125_Wlep_VpTbias_HWW_batch1_LHE.py][Link]] | Generation cross-section biased in V pT | 
+    | qq/qg->W^(+)(lep)H+j | PowhegBox v2 | NLO QCD (MiNLO) | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603233/mc.Ph_PDF4LHC21_WmH125_Wlep_VpTbias_HWW_batch1_LHE.py][Link]] | Generation cross-section biased in V pT | 
+    | gg->Z(lep)H | PowhegBox v2 | LO QCD | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603208/mc.Ph_PDF4LHC21_ggZllH125_HWW_batch1_LHE.py][Link]] | - | 
+    | qq/qg->ZH+j | PowhegBox v2 | NLO QCD (MiNLO) | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603253/mc.Ph_PDF4LHC21_ZH125J_Zincl_MINLO_HGam_batch1_LHE.py][Link]] | - |
+    | qq/qg->W^(+)H+j | PowhegBox v2 | NLO QCD (MiNLO) | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603245/mc.Ph_PDF4LHC21_WpH125J_Wincl_MINLO_HGam_batch1_LHE.py][Link]] | - | 
+    | qq/qg->W^(-)H+j | PowhegBox v2 | NLO QCD (MiNLO) | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603237/mc.Ph_PDF4LHC21_WmH125J_Wincl_MINLO_HGam_batch1_LHE.py][Link]] | - | 
+    | gg->ZH | PowhegBox v2 | LO QCD | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603200/mc.Ph_PDF4LHC21_ggZH125_Zincl_HGam_batch1_LHE.py][Link]] | - | 
+    | ttH | PowhegBox v2 | NLO QCD | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603213/mc.Ph_PDF4LHC21_inclusive_ttH125_HGam_batch1_LHE.py][Link]] | - | 
+    | bbH | PowhegBox v2 | NLO QCD | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/603xxx/603194/mc.PhPy8EG_PDF4LHC21_4FS_A14NNPDF_bbH_HGam_batch1_LHE.py][Link]] | - | 
+    | tHjb | PowhegBox v2 | NLO QCD | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/545xxx/545634/MadGraphControl_tHjb125_4fl_Common.py][Link]] | - | 
+    | tWH | PowhegBox v2 | NLO QCD | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/blob/master/545xxx/545637/MadGraphControl_tWH125_Common.py][Link]] | - | 
+
+    LHE files are then used as inputs for Higgs boson decay plus showering processes. References to the final samples produced for the different production + decay modes are given below.
+    In general, nominal signal samples are showered using Pythia 8, and the A14 set of tuned parameters. 
+
+---++ H -> ZZ* -> 4l
+Unless specified differently, the Z bosons are decayed only to electron and muon pairs.
     
-    
-    ---+ Table Contents
-    
-       * Decay channel: Higgs decay channel
-       * Description: any other production or decay process-related info
-       * Generator: names according to the [[https://gitlab.cern.ch/atlas/athena/blob/master/Generators/EvgenJobTransforms/python/EvgenConfig.py][Evgen Config conventions]] or [[https://gitlab.cern.ch/atlas/athena/blob/master/Generators/EvgenJobTransforms/share/skeleton.GENtoEVGEN.py][their short-hands]]. This is the naming schema used for central production jobOptions
-       * jobOption: links to key hard-process steering files in [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions][MC15JobOptions]]. We aim for the links to point to the exact tags with which the sample was produced (which might differ from the master branch)
-       * Statistics: reconstruction level, MC16(a+d+e)
-       * Generator XS [nb]: cross-section reported by AMI (stored to MetaData by Generate_tf unless they have been explicitly asked to be changed in AMI). This might or might not include Branching Ratio and will not include Filter Efficiency of any generator-level filters used in sample produciton
-       * XS*BR*FE [fb]: generator cross-section * Branching Ratio * Filter Efficiency:
-       * Ref. XS*BR [fb]: reference cross-section * Branching Ratio (mostly for YR4, see [[https://cds.cern.ch/record/2678867][the PMG references document]] for details)
-       * Warning: reference to pitfalls which we think you should be warned about. These are detailed directly below the tables.
-    
-    *General note*: For the Powheg samples, the Higgs group use the PDF PDF4LHC15. This prediction is typically not stored in the nominal weight (which corresponds to NNPDF3.0). The weight name "PDF set = 90400" should be used when the PDF4LHC15 prediction is the desired one. An exception to this are the ggH NNLOPs samples in which the weight name that will correspond to the prediction with the NNLO reweighting and PDF4LHC15 is called "nnlops-nominal-pdflhc"
-    
-    ---+ ggF
-    
-    ---++ Nominal
-    
-    %TWISTY{
-    mode="div"
-    showlink="Show description"
-    hidelink="Hide notes""
-    showimgleft="%ICONURLPATH{toggleopen-small}%"
-    hideimgleft="%ICONURLPATH{toggleclose-small}%"
-    }%
-    
-    The samples below are generated using Powheg NNLOPS and showered with Pyhia8. The common LHE production for these samples was requested in this [[https://its.cern.ch/jira/browse/ATLMCPROD-2738][JIRA]] and the name of the LHE container is:
-    
-    <verbatim>
-    mc15_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.evgen.TXT.e5607</verbatim>
-    
-    %ENDTWISTY%
-    
+---+++ Nominal
     | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
-    | ZZ*->4l | ggH | 603325 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603325/mc.PhPy8EG_PDF4LHC21_ggH125_NNLOPS_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | VBFH | 601500 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601500/mc.PhPy8EG_PDF4LHC21_VBFH125_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | WpH | 601501 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601501/mc.PhPy8EG_PDF4LHC21_WpH125J_Wincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | WmH | 601502 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601502/mc.PhPy8EG_PDF4LHC21_WmH125J_Wincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | ZH | 601503 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601503/mc.PhPy8EG_PDF4LHC21_ZH125J_Zincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | ggZH | 601504 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601504/mc.PhPy8EG_PDF4LHC21_ggZH125_Zincl_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | ttH | 601505 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601505/mc.PhPy8EG_PDF4LHC21_inclusive_ttH125_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | bbH | 601634 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601634/mc.PhPy8EG_PDF4LHC21_4FS_A14NNPDF_bbH_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | tHjb | 545634 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545634/mc.aMCPy8EG_tHjb125_4fl_ZZ4l.py][Link]] | No taus in ZZ decay |
-    | ZZ*->4l | tWH | 545637 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545637/mc.aMCPy8EG_tWH125_ZZ4l.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | ggH | 603325 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603325/mc.PhPy8EG_PDF4LHC21_ggH125_NNLOPS_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | VBFH | 601500 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601500/mc.PhPy8EG_PDF4LHC21_VBFH125_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | WpH | 601501 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601501/mc.PhPy8EG_PDF4LHC21_WpH125J_Wincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | WmH | 601502 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601502/mc.PhPy8EG_PDF4LHC21_WmH125J_Wincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | ZH | 601503 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601503/mc.PhPy8EG_PDF4LHC21_ZH125J_Zincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | ggZH | 601504 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601504/mc.PhPy8EG_PDF4LHC21_ggZH125_Zincl_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | ttH | 601505 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601505/mc.PhPy8EG_PDF4LHC21_inclusive_ttH125_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | bbH | 601634 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601634/mc.PhPy8EG_PDF4LHC21_4FS_A14NNPDF_bbH_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | tHjb | 545634 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545634/mc.aMCPy8EG_tHjb125_4fl_ZZ4l.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | tWH | 545637 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545637/mc.aMCPy8EG_tWH125_ZZ4l.py][Link]] | No taus in ZZ decay |
+   
+---+++ Alternative parton shower
+    | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+    | ZZ* -> 4l | ggH | 604367 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604367/mc.PhH7EG_PDF4LHC21_ggH125_NNLOPS_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | VBFH | 604368 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604368/mc.PhH7EG_PDF4LHC21_VBFH125_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | WpH | 604369 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604369/mc.PhH7EG_PDF4LHC21_WpH125J_Wincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | WmH | 604370 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604370/mc.PhH7EG_PDF4LHC21_WmH125J_Wincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | ZH | 604371 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604371/mc.PhH7EG_PDF4LHC21_ZH125J_Zincl_MINLO_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | ggZH | 604372 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604372/mc.PhH7EG_PDF4LHC21_ggZH125_Zincl_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | ttH | 604373 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604373/mc.PhH7EG_PDF4LHC21_inclusive_ttH125_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
+    | ZZ* -> 4l | bbH | 604374 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604374/mc.PhH7EG_PDF4LHC21_4FS_A14NNPDF_bbH_HZZ_4l_notau.py][Link]] | No taus in ZZ decay |
     
-    | DSID  | Description  | Decay channel | Generator | jobOption |  AOD names | Double AOD name test | Statistics (AOD)  | Generator XS [nb] | Filter Eff. | Ref. [[LHCPhysics.CERNYellowReportPageAt13TeV][XS]]* [[LHCPhysics.CERNYellowReportPageBR][BR]] [pb] | Warning |
-    | 343981 | ggH | H-&gt;yy | Powheg+Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID343xxx/MC15.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r9364<br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r10201<br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r10724<br />%ENDTWISTY%  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r9364<br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r10201<br />mc16_13TeV.343981.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e5607_s3126_r10724<br />%ENDTWISTY%  | 18276000 | 2.8300E-02  | 1.0000E+00 | 48.52*2.270E-03  | |
-    | 345316 | ggH | H-&gt;Zy | Powheg+Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID345xxx/MC15.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r9364<br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r10201<br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r10724<br />%ENDTWISTY%  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r9364<br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r10201<br />mc16_13TeV.345316.PowhegPythia8EvtGen_NNLOPS_nnlo_30_ggH125_Zy_Zll.recon.AOD.e5713_s3126_r10724<br />%ENDTWISTY%  | 1796000 | 2.8305E-02  | 1.0000E+00 | 48.68*1.541E-03  | |
-    Some analyses are more sensitive to the description by the MC of the second jet. In those cases a Madgraph merged sample with up to 2 additional partons at NLO is more appropriate.
+---+++ Alternative matrix element generator
+    | Decay mode | Production mode | DSID | Generator | jobOption | Notes |    
+    | ZZ*->4l | ggH | 545868 | Madgraph_aMCatNLO + Pythia 8 (FxFx) |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545868/mc.MGaMCPy8EG_ggH_FxFx_SM_ZZ4l.py][Link]] | No taus in ZZ decay |    
     
-    Warnings: <br />
-    [1]: These samples are not nominal samples and just used for comparison
-    
-    Notes: <br />
-    To get the NNLOPs reweighted description, the weight with name nnlops-nominal-pdflhc should be used
-    
-    
-    ---++ Systematics
-    ---+++ Herwig shower
-    
-    Only setups found using a recent version of Herwig &gt;= 7.1.3 are listed
-    
-    | DSID  | Description  | Decay channel | Generator | jobOption |  AOD names | Statistics (AOD)  | Generator XS [nb] | Filter Eff.  | Ref. [[LHCPhysics.CERNYellowReportPageAt13TeV][XS]]* [[LHCPhysics.CERNYellowReportPageBR][BR]] [pb] | Warning |
-    | 346797 | ggH | H-&gt;yy | Powheg+H7 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID346xxx/MC15.346797.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_gamgam.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.346797.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e7928_s3126_r9364<br />mc16_13TeV.346797.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e7928_s3126_r10201<br />mc16_13TeV.346797.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_gamgam.recon.AOD.e7928_s3126_r10724<br />%ENDTWISTY%  | 18264000 | 2.8301E-02  | 1.0000E+00 | XX  | |
-    | 346446 | ggH | H-&gt;4l(notau) | Powheg+H7 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID346xxx/MC15.346446.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_ZZ4l_noTau.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.346446.PhH7EG_H7UE_NNLOPS_nnlo_30_ggH125_ZZ4l_noTau.recon.AOD.e7320_s3126_r10724<br />%ENDTWISTY%  | 966000 | 2.8306E-02  | 1.0000E+00 | XX  | |
-    | 346802 | ggH | H-&gt;WW-&gt;2l2nu(notau) | Powheg+H7 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID346xxx/MC15.346802.PhH7EG_NNLOPS_nnlo_30_ggH125_WWlvlv_noTau.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.346802.PhH7EG_NNLOPS_nnlo_30_ggH125_WWlvlv_noTau.recon.AOD.e7889_s3126_r9364<br />mc16_13TeV.346802.PhH7EG_NNLOPS_nnlo_30_ggH125_WWlvlv_noTau.recon.AOD.e7889_s3126_r10201<br />mc16_13TeV.346802.PhH7EG_NNLOPS_nnlo_30_ggH125_WWlvlv_noTau.recon.AOD.e7889_s3126_r10724<br />%ENDTWISTY%  | 7290000 | 2.8301E-02  | 4.9243E-01 | XX  | |
-    | 600565 | ggH | H-&gt;tautau-&gt;hphm | Powheg+Herwig7 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/tree/master/600xxx/600565/mc.PhH7EG_ggH125_tautauh30h20_ShowerSys_fix.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.600565.PhH7EG_ggH125_tautauh30h20_ShowerSys_fix.recon.AOD.e8231_s3126_r9364<br />mc16_13TeV.600565.PhH7EG_ggH125_tautauh30h20_ShowerSys_fix.recon.AOD.e8231_s3126_r10201<br />mc16_13TeV.600565.PhH7EG_ggH125_tautauh30h20_ShowerSys_fix.recon.AOD.e8231_s3126_r10724<br />%ENDTWISTY%  | 6888000 | 2.8295E-02  | 4.4814E-01 | XX  | |
-    | 600566 | ggH | H-&gt;tautau-&gt;lplm | Powheg+Herwig7 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/tree/master/600xxx/600566/mc.PhH7EG_ggH125_tautaul13l7_ShowerSys_fix.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.600566.PhH7EG_ggH125_tautaul13l7_ShowerSys_fix.recon.AOD.e8231_s3126_r9364<br />mc16_13TeV.600566.PhH7EG_ggH125_tautaul13l7_ShowerSys_fix.recon.AOD.e8231_s3126_r10201<br />mc16_13TeV.600566.PhH7EG_ggH125_tautaul13l7_ShowerSys_fix.recon.AOD.e8231_s3126_r10724<br />%ENDTWISTY%  | 2407000 | 2.8297E-02  | 4.3273E-01 | XX  | |
-    | 600567 | ggH | H-&gt;tautau-&gt;lphm | Powheg+Herwig7 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/tree/master/600xxx/600567/mc.PhH7EG_ggH125_ttlp15hm20_ShowerSys_fix.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.600567.PhH7EG_ggH125_ttlp15hm20_ShowerSys_fix.recon.AOD.e8231_s3126_r9364<br />mc16_13TeV.600567.PhH7EG_ggH125_ttlp15hm20_ShowerSys_fix.recon.AOD.e8231_s3126_r10201<br />mc16_13TeV.600567.PhH7EG_ggH125_ttlp15hm20_ShowerSys_fix.recon.AOD.e8231_s3126_r10724<br />%ENDTWISTY%  | 2369000 | 2.8296E-02  | 1.6416E-01 | XX  | |
-    | 600568 | ggH | H-&gt;tautau-&gt;lmhp | Powheg+Herwig7 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/tree/master/600xxx/600568/mc.PhH7EG_ggH125_ttlm15hp20_ShowerSys_fix.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.600568.PhH7EG_ggH125_ttlm15hp20_ShowerSys_fix.recon.AOD.e8231_s3126_r9364<br />mc16_13TeV.600568.PhH7EG_ggH125_ttlm15hp20_ShowerSys_fix.recon.AOD.e8231_s3126_r10201<br />mc16_13TeV.600568.PhH7EG_ggH125_ttlm15hp20_ShowerSys_fix.recon.AOD.e8231_s3126_r10724<br />%ENDTWISTY%  | 6376000 | 2.8295E-02  | 1.6422E-01 | XX  | |
-    
-    ---+++ MadGraph FxFx
-    | DSID  | Description  | Decay channel | Generator | jobOption |  AOD names | Statistics (AOD)  | Generator XS [nb] | Filter Eff.  | Ref. [[LHCPhysics.CERNYellowReportPageAt13TeV][XS]]* [[LHCPhysics.CERNYellowReportPageBR][BR]] [pb] | Warning |
-    | 345944 | ggH | H-&gt;yy | aMC@NLO+Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID345xxx/MC15.345944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.recon.AOD.e6714_s3126_r9364<br />mc16_13TeV.34\
-    5944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.recon.AOD.e7955_s3126_r9364<br />mc16_13TeV.345944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.recon.AOD.e6714_s3126_r10201<br />mc16_13TeV.345944.aMcAtNloPy8EG_A14NNPDF23LO_p\
-    px0yy_FxFx_Np012_SM.recon.AOD.e7955_s3126_r10201<br />mc16_13TeV.345944.aMcAtNloPy8EG_A14NNPDF23LO_ppx0yy_FxFx_Np012_SM.recon.AOD.e7955_s3126_r10724<br />%ENDTWISTY%  | 18101000 | 5.1430E-05  | 1.0000E+00 | XX  | |
-    | 344158 | ggH | H-&gt;4l | aMC@NLO+Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID344xxx/MC15.344158.aMcAtNloPythia8EvtGen_A14NNPDF23LO_ppx0_FxFx_Np012_SM.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.344158.aMcAtNloPythia8EvtGen_A14NNPDF23LO_ppx0_FxFx_Np012_SM.recon.AOD.e5403_s3126_r9364<br />mc16_13TeV.344158.aMcAtNloPythia8EvtGen_A14NNPDF23LO_ppx0_FxFx_Np012_SM.recon.AOD.e5403_s3126_r10201<br />mc16_13TeV.344158.aMcAtNloPythia8EvtGen_A14NNPDF23LO_ppx0_FxFx_Np012_SM.recon.AOD.e5403_s3126_r10724<br />%ENDTWISTY%  | 1350000 | 4.1138E-06  | 1.0000E+00 | XX  | |
-    | 345697 | ggH | H-&gt;tautau | MadGraph +Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID345xxx/MC15.345697.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaullNp2.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345697.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaullNp2.recon.AOD.e6529_s3126_r9364<br />mc16_13TeV.345697.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaullNp2.recon.AOD.e6529_s3126_r10201<br />mc16_13TeV.345697.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaullNp2.recon.AOD.e6529_s3126_r10724<br />%ENDTWISTY%  | 2367000 | 3.3532E-02  | 5.3070E-02 | XX  | |
-    | 345698 | ggH | H-&gt;tautau | MadGraph +Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSI<span class=][ D345xxx/MC15.345698.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaulhNp2.py"&gt;Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345698.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaulhNp2.recon.AOD.e6529_s3126_r9364<br />mc16_13TeV.345698.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaulhNp2.recon.AOD.e6529_s3126_r10201<br />mc16_13TeV.345698.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautaulhNp2.recon.AOD.e6529_s3126_r10724<br />%ENDTWISTY%  | 1498000 | 3.3539E-02  | 1.5050E-01 | XX  | |
-    | 345699 | ggH | H-&gt;tautau | MadGraph +Pythia8 | [[https://gitlab.cern.ch/atlas-physics/pmg/infrastructure/mc15joboptions/blob/master/share/DSID345xxx/MC15.345699.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautauhhNp2.py][Link]]  | %TWISTY{mode="div"showlink="AODnames"hidelink="AODnames"showimgleft="%ICONURLPATH{toggleopen-small}%"hideimgleft="%ICONURLPATH{toggleclose-small}%"}% <br />mc16_13TeV.345699.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautauhhNp2.recon.AOD.e6529_s3126_r9364<br />mc16_13TeV.345699.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautauhhNp2.recon.AOD.e6529_s3126_r10201<br />mc16_13TeV.345699.MadGraphPythia8EvtGen_AZNLOCTEQ6L1_ggfhtautauhhNp2.recon.AOD.e6529_s3126_r10724<br />%ENDTWISTY%  | 1085000 | 3.3522E-02  | 1.8979E-01 | XX  | |
-    
-    
+---+++ Tau filtered samples
+   These samples include a filter to include tau in the final states, and remove any overlap with nominal samples. Check the job options for further details.
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | ZZ* -> 4l | VBFH | 601583 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601583/mc.PhPy8EG_PDF4LHC21_VBFH125_ZZ4lep_tauFilt.py][Link]] | Tau filter |
+   | ZZ* -> 4l | WpH | 601584 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601584/mc.PhPy8EG_PDF4LHC21_WpH125J_Wincl_ZZ4lep_tauFilt.py][Link]] | Tau filter |
+   | ZZ* -> 4l | WmH | 601585 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601585/mc.PhPy8EG_PDF4LHC21_WmH125J_Wincl_ZZ4lep_tauFilt.py][Link]] | Tau filter |
+   | ZZ* -> 4l | ZH | 601586 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601586/mc.PhPy8EG_PDF4LHC21_ZH125J_Zincl_ZZ4lep_tauFilt.py][Link]] | Tau filter |
+   | ZZ* -> 4l | ggH | 602685 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602685/mc.PhPy8EG_PDF4LHC21_ggH125_NNLOPS_ZZ4lep_taufilt.py][Link]] | Tau filter |
+
+---++ H -> µµ
+
+---+++ Nominal
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | µµ | ggH | 603327 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603327/mc.PhPy8EG_PDF4LHC21_ggH125_NNLOPS_Hmumu.py][Link]] |  -  |
+   | µµ | VBFH | 601507 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601507/mc.PhPy8EG_PDF4LHC21_VBFH125_Hmumu.py][Link]] |  -  |
+   | µµ | ZH | 601508 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601508/mc.PhPy8EG_PDF4LHC21_ZH125J_Zincl_MINLO_Hmumu.py][Link]] |  -  |
+   | µµ | ggZH | 601509 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601509/mc.PhPy8EG_PDF4LHC21_ggZH125_Zincl_Hmumu.py][Link]] |  -  |
+   | µµ | WpH | 601510 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601510/mc.PhPy8EG_PDF4LHC21_WpH125J_Wincl_MINLO_Hmumu.py][Link]] |  -  |
+   | µµ | WmH | 601511 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601511/mc.PhPy8EG_PDF4LHC21_WmH125J_Wincl_MINLO_Hmumu.py][Link]] |  -  |
+   | µµ | ttH | 601512 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601512/mc.PhPy8EG_PDF4LHC21_inclusive_ttH125_Hmumu.py][Link]] |  -  |
+   | µµ | bbH | 603329 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603329/mc.PhPy8EG_PDF4LHC21_4FS_A14NNPDF_bbH_Hmumu.py][Link]] |  -  |
+   | µµ | tHjb | 545635 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545635/mc.aMCPy8EG_tHjb125_4fl_mumu.py][Link]] |  -  |
+   | µµ | tWH | 545638 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545638/mc.aMCPy8EG_tWH125_mumu.py][Link]] |  -  |
+
+---+++ Alternative parton shower
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | µµ | ggH | 604359 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604359/mc.PhH7EG_PDF4LHC21_ggH125_NNLOPS_Hmumu.py][Link]] |  -  |
+   | µµ | VBFH | 604360 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604360/mc.PhH7EG_PDF4LHC21_VBFH125_Hmumu.py][Link]] |  -  |
+   | µµ | WpH | 604361 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604361/mc.PhH7EG_PDF4LHC21_WpH125J_Wincl_MINLO_Hmumu.py][Link]] |  -  |
+   | µµ | WmH | 604362 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604362/mc.PhH7EG_PDF4LHC21_WmH125J_Wincl_MINLO_Hmumu.py][Link]] |  -  |
+   | µµ | ZH | 604363 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604363/mc.PhH7EG_PDF4LHC21_ZH125J_Zincl_MINLO_Hmumu.py][Link]] |  -  |
+   | µµ | ggZH | 604364 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604364/mc.PhH7EG_PDF4LHC21_ggZH125_Zincl_Hmumu.py][Link]] |  -  |
+   | µµ | ttH | 604365 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604365/mc.PhH7EG_PDF4LHC21_inclusive_ttH125_Hmumu.py][Link]] |  -  |
+   | µµ | bbH | 604366 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604366/mc.PhH7EG_PDF4LHC21_4FS_A14NNPDF_bbH_Hmumu.py][Link]] |  -  |
+
+---++ H -> WW* -> lvlv
+
+---+++ Nominal
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | WW* -> lvlv | ggH | 602632 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602632/mc.PhPy8EG_PDF4LHC21_ggH125_NNLOPS_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | VBFH | 601599 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601599/mc.PhPy8EG_PDF4LHC21_VBFH125_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | Wm(lep)H | 603510 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603510/mc.PhPy8EG_PDF4LHC21_WmH125_Wlep_VpTbias_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvlv | Wp(lep)H | 603512 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603512/mc.PhPy8EG_PDF4LHC21_WpH125_Wlep_VpTbias_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvlv | Z(lep)H | 603514 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603514/mc.PhPy8EG_PDF4LHC21_qqZllH125_VpTbias_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvlv | gg->Z(lep)H | 603508 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603508/mc.PhPy8EG_PDF4LHC21_ggZllH125_HWW_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | WmH | 602523 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602523/mc.PhPy8EG_PDF4LHC21_WmH125J_Wincl_MINLO_HWW_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | WpH | 602525 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602525/mc.PhPy8EG_PDF4LHC21_WpH125J_Wincl_MINLO_HWW_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | ZH | 602527 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602527/mc.PhPy8EG_PDF4LHC21_ZH125J_Zincl_MINLO_HWW_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | ggZH | 602521 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602521/mc.PhPy8EG_PDF4LHC21_ggZH125_Zincl_HWW_WWlvlv.py][Link]] |  -  |
+
+---+++ Alternative parton shower
+   
+   | WW* -> lvlv | Wm(lep)H | 604528 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604528/mc.PhH7EG_PDF4LHC21_WmH125_Wlep_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvlv | Wp(lep)H | 604525 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604525/mc.PhH7EG_PDF4LHC21_WpH125_Wlep_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvlv | Z(lep)H | 604522 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604522/mc.PhH7EG_PDF4LHC21_qqZllH125_VpTbias_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvlv | gg->Z(lep)H | 604531 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604531/mc.PhH7EG_PDF4LHC21_ggZllH125_HWW_HWW_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | WmH | 604516 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604516/mc.PhH7EG_PDF4LHC21_WmH125J_Wincl_HWW_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | WpH | 604513 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604513/mc.PhH7EG_PDF4LHC21_WpH125J_Wincl_HWW_WWlvlv.py][Link]] |  -  |
+   | WW* -> lvlv | ZH | 604510 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604510/mc.PhH7EG_PDF4LHC21_ZH125J_Zincl_HWW_WWlvlv.py][Link]] | - |
+   | WW* -> lvlv | ggZH | 604519 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604519/mc.PhH7EG_PDF4LHC21_ggZH125_Zincl_HWW_WWlvlv.py][Link]] |  -  |
+
+---++ H -> WW* -> lvqq
+
+---+++ Nominal
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | WW* -> lvqq | WmH | 603511 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603511/mc.PhPy8EG_PDF4LHC21_WmH125_Wlep_VpTbias_HWW_WWlvqq.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvqq | WpH | 603513 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603513/mc.PhPy8EG_PDF4LHC21_WpH125_Wlep_VpTbias_HWW_WWlvqq.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvqq | Z(lep)H | 603515 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603515/mc.PhPy8EG_PDF4LHC21_qqZllH125_VpTbias_HWW_WWlvqq.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvqq | gg->Z(lep)H | 603509 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/603xxx/603509/mc.PhPy8EG_PDF4LHC21_ggZllH125_HWW_WWlvqq.py][Link]] |  -  |
+   | WW* -> lvqq | WmH | 602524 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602524/mc.PhPy8EG_PDF4LHC21_WmH125J_Wincl_MINLO_HWW_WWlvqq.py][Link]] |  -  |
+   | WW* -> lvqq | WpH | 602526 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602526/mc.PhPy8EG_PDF4LHC21_WpH125J_Wincl_MINLO_HWW_WWlvqq.py][Link]] |  -  |
+   | WW* -> lvqq | ZH | 602528 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602528/mc.PhPy8EG_PDF4LHC21_ZH125J_Zincl_MINLO_HWW_WWlvqq.py][Link]] |  -  |
+   | WW* -> lvqq | ggZH | 602522 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602522/mc.PhPy8EG_PDF4LHC21_ggZH125_Zincl_HWW_WWlvqq.py][Link]] |  -  |
+
+---+++ Alternative parton shower
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | WW* -> qqlv | gg->Z(lep)H | 604529 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604529/mc.PhH7EG_PDF4LHC21_ggZllH125_HWW_HWW_WWqqlv.py][Link]] |  -  |
+   | WW* -> lvqq | gg->Z(lep)H | 604530 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604530/mc.PhH7EG_PDF4LHC21_ggZllH125_HWW_HWW_WWlvqq.py][Link]] |  -  |
+   | WW* -> qqlv | Wm(lep)H | 604526 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604526/mc.PhH7EG_PDF4LHC21_WmH125_Wlep_HWW_WWqqlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvqq | Wm(lep)H | 604527 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604527/mc.PhH7EG_PDF4LHC21_WmH125_Wlep_HWW_WWlvqq.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> qqlv | Wp(lep)H | 604523 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604523/mc.PhH7EG_PDF4LHC21_WpH125_Wlep_HWW_WWqqlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvqq | Wp(lep)H | 604524 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604524/mc.PhH7EG_PDF4LHC21_WpH125_Wlep_HWW_WWlvqq.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> qqlv | Z(lep)H | 604520 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604520/mc.PhH7EG_PDF4LHC21_qqZllH125_VpTbias_HWW_WWqqlv.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> lvqq | Z(lep)H | 604521 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604521/mc.PhH7EG_PDF4LHC21_qqZllH125_VpTbias_HWW_WWlvqq.py][Link]] | Generation cross-section biased in V pT |
+   | WW* -> qqlv | ggZH | 604517 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604517/mc.PhH7EG_PDF4LHC21_ggZH125_Zincl_HWW_WWqqlv.py][Link]] |  -  |
+   | WW* -> lvqq | ggZH | 604518 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604518/mc.PhH7EG_PDF4LHC21_ggZH125_Zincl_HWW_WWlvqq.py][Link]] |  -  |
+   | WW* -> qqlv | WmH | 604515 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604515/mc.PhH7EG_PDF4LHC21_WmH125J_Wincl_HWW_WWlvqq.py][Link]] |  -  |
+   | WW* -> lvqq | WmH | 604514 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604514/mc.PhH7EG_PDF4LHC21_WmH125J_Wincl_HWW_WWqqlv.py][Link]] |  -  |
+   | WW* -> qqlv | WpH | 604511 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604511/mc.PhH7EG_PDF4LHC21_WpH125J_Wincl_HWW_WWqqlv.py][Link]] |  -  |
+   | WW* -> lvqq | WpH | 604512 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604512/mc.PhH7EG_PDF4LHC21_WpH125J_Wincl_HWW_WWlvqq.py][Link]] |  -  |
+   | WW* -> qqlv | ZH | 604508 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604508/mc.PhH7EG_PDF4LHC21_ZH125J_Zincl_HWW_WWqqlv.py][Link]] |  -  |
+   | WW* -> lvqq | ZH | 604509 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604509/mc.PhH7EG_PDF4LHC21_ZH125J_Zincl_HWW_WWlvqq.py][Link]] |  -  |
+
     <!-- *********************************************************** -->
     <!-- Do NOT remove the remaining lines, but add requested info as appropriate -->
     <!-- *********************************************************** -->
