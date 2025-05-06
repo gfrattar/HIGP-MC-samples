@@ -85,7 +85,7 @@ Unless specified differently, the Z bosons are decayed only to electron and muon
     | Decay mode | Production mode | DSID | Generator | jobOption | Notes |    
     | ZZ*->4l | ggH | 545868 | Madgraph_aMCatNLO + Pythia 8 (FxFx) |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545868/mc.MGaMCPy8EG_ggH_FxFx_SM_ZZ4l.py][Link]] | No taus in ZZ decay |    
     
----+++ Tau filtered samples
+---+++ Specialised: tau filtered samples
    These samples include a filter to include tau in the final states, and remove any overlap with nominal samples. Check the job options for further details.
    | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
    | ZZ* -> 4l | VBFH | 601583 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601583/mc.PhPy8EG_PDF4LHC21_VBFH125_ZZ4lep_tauFilt.py][Link]] | Tau filter |
@@ -136,7 +136,7 @@ Unless specified differently, the Z bosons are decayed only to electron and muon
    | WW* -> lvlv | ggZH | 602521 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602521/mc.PhPy8EG_PDF4LHC21_ggZH125_Zincl_HWW_WWlvlv.py][Link]] |  -  |
 
 ---+++ Alternative parton shower
-   
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
    | WW* -> lvlv | Wm(lep)H | 604528 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604528/mc.PhH7EG_PDF4LHC21_WmH125_Wlep_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
    | WW* -> lvlv | Wp(lep)H | 604525 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604525/mc.PhH7EG_PDF4LHC21_WpH125_Wlep_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
    | WW* -> lvlv | Z(lep)H | 604522 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604522/mc.PhH7EG_PDF4LHC21_qqZllH125_VpTbias_HWW_WWlvlv.py][Link]] | Generation cross-section biased in V pT |
@@ -177,6 +177,86 @@ Unless specified differently, the Z bosons are decayed only to electron and muon
    | WW* -> lvqq | WpH | 604512 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604512/mc.PhH7EG_PDF4LHC21_WpH125J_Wincl_HWW_WWlvqq.py][Link]] |  -  |
    | WW* -> qqlv | ZH | 604508 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604508/mc.PhH7EG_PDF4LHC21_ZH125J_Zincl_HWW_WWqqlv.py][Link]] |  -  |
    | WW* -> lvqq | ZH | 604509 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604509/mc.PhH7EG_PDF4LHC21_ZH125J_Zincl_HWW_WWlvqq.py][Link]] |  -  |
+
+
+---++ H -> γγ
+
+---+++ Nominal
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | γγ | ggH | 602421 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602421/mc.PhPy8EG_PDF4LHC21_ggH_NNLOPS_gammagamma.py][Link]] |  -  |
+   | γγ | VBFH | 601482 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601482/mc.PhPy8EG_PDF4LHC21_VBFH125_gammagamma.py][Link]] |  -  |
+   | γγ | WmH | 601483 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601483/mc.PhPy8EG_PDF4LHC21_WmH125J_Wincl_MINLO_gammagamma.py][Link]] |  -  |
+   | γγ | WpH | 601484 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601484/mc.PhPy8EG_PDF4LHC21_WpH125J_Wincl_MINLO_gammagamma.py][Link]] |  -  |
+   | γγ | ZH | 601523 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601523/mc.PhPy8EG_PDF4LHC21_ZH125J_Zincl_MINLO_gammagamma.py][Link]] |  -  |
+   | γγ | ggZH | 601522 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601522/mc.PhPy8EG_PDF4LHC21_ggZH125_Zincl_gammagamma.py][Link]] |  -  |
+   | γγ | ttH | 602422 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/602xxx/602422/mc.PhPy8EG_PDF4LHC21_ttH125_tincl_gammagamma_1file.py][Link]] |  -  |
+   | γγ | bbH | 601710 | Powheg + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/601xxx/601710/mc.PhPy8EG_PDF4LHC21_4FS_A14NNPDF_bbH_gammagamma.py][Link]] |  -  |
+   | γγ | tWH | 545639 | Madgraph_aMCatNLO + Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545639/mc.aMCPy8EG_tWH125_gammagamma.py][Link]] |  -  |
+
+---+++ Alternative parton shower
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | γγ | ggH | 604315 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604315/mc.PhH7EG_PDF4LHC21_ggH125_NNLOPS_Hgammagamma.py][Link]] |  -  |
+   | γγ | VBFH | 604318 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604318/mc.PhH7EG_PDF4LHC21_VBFH125_Hgammagamma.py][Link]] |  -  |
+   | γγ | WmH | 604311 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604311/mc.PhH7EG_PDF4LHC21_WmH125J_Wincl_MINLO_Hgammagamma.py][Link]] |  -  |
+   | γγ | WpH | 604312 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604312/mc.PhH7EG_PDF4LHC21_WpH125J_Wincl_MINLO_Hgammagamma.py][Link]] |  -  |
+   | γγ | ZH | 604313 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604313/mc.PhH7EG_PDF4LHC21_ZH125_Zincl_Hgammagamma.py][Link]] |  -  |
+   | γγ | ggZH | 604316 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604316/mc.PhH7EG_PDF4LHC21_ggZH125_Zincl_Hgammagamma.py][Link]] |  -  |
+   | γγ | ttH | 604317 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604317/mc.PhH7EG_PDF4LHC21_ttH125_tincl_Hgammagamma.py][Link]] |  -  |
+   | γγ | bbH | 604314 | Powheg + Herwig 7 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/604xxx/604314/mc.PhH7EG_PDF4LHC21_4FS_A14NNPDF_bbH_Hgammagamma.py][Link]] |  -  |
+
+---+++ Specialised: VBF CP samples
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | γγ | VBFH | 545786 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545786/mc.MGPy8EG_SMEFT_VBFHyy_cHWtil0p00.py][Link]] | cHWtil0p00 |
+   | γγ | VBFH | 545786 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545786/mc.MGPy8EG_SMEFT_VBFHyy_cHWtil0p00.py][Link]] | cHWtil0p00 |
+   | γγ | VBFH | 545787 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545787/mc.MGPy8EG_SMEFT_VBFHyy_cHWtil3p17.py][Link]] | cHWtil3p17 |
+   | γγ | VBFH | 545787 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545787/mc.MGPy8EG_SMEFT_VBFHyy_cHWtil3p17.py][Link]] | cHWtil3p17 |
+   | γγ | VBFH | 545788 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545788/mc.MGPy8EG_SMEFT_VBFHyy_cHWtilm3p17.py][Link]] | cHWtilm3p17 |
+   | γγ | VBFH | 545788 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545788/mc.MGPy8EG_SMEFT_VBFHyy_cHWtilm3p17.py][Link]] | cHWtilm3p17 |
+   | γγ | VBFH | 545789 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545789/mc.MGPy8EG_SMEFT_VBFHyy_cHWtil1p5.py][Link]] | cHWtil1p5 |
+   | γγ | VBFH | 545789 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545789/mc.MGPy8EG_SMEFT_VBFHyy_cHWtil1p5.py][Link]] | cHWtil1p5 |
+
+---+++ Specialised: VBF polarization samples
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | γγ | VBFH | 562376 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/562xxx/562376/mc.MGPy8EG_Polarisation_VBFHyy_aL10_aT10.py][Link]] | aL10, aT10 |
+   | γγ | VBFH | 562377 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/562xxx/562377/mc.MGPy8EG_Polarisation_VBFHyy_aL14_aT10.py][Link]] | aL14, aT10 |
+   | γγ | VBFH | 562378 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/562xxx/562378/mc.MGPy8EG_Polarisation_VBFHyy_aL12_aT10.py][Link]] | aL12, aT10 |
+   | γγ | VBFH | 562379 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/562xxx/562379/mc.MGPy8EG_Polarisation_VBFHyy_aL10_aT14.py][Link]] | aL10, aT14 |
+   | γγ | VBFH | 562380 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/562xxx/562380/mc.MGPy8EG_Polarisation_VBFHyy_aL10_aT12.py][Link]] | aL10, aT12 |
+   | γγ | VBFH | 562381 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/562xxx/562381/mc.MGPy8EG_Polarisation_VBFHyy_aL10_aT06.py][Link]] | aL10, aT06 |
+   | γγ | VBFH | 562382 | Pythia 8 |  [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/562xxx/562382/mc.MGPy8EG_Polarisation_VBFHyy_aL06_aT10.py][Link]] | aL06, aT10 |
+
+---+++ Specialised: ttH/tH CP samples
+   | Decay mode | Production mode | DSID | Generator | jobOption | Notes |
+   | γγ | tHjb | 545895 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545895/mc.aMCPy8EG_tHjb125_CP_0_gamgam.py][Link]] | CP 0 |
+   | γγ | tHjb | 545896 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545896/mc.aMCPy8EG_tHjb125_CP_15_gamgam.py][Link]] | CP 15 |
+   | γγ | tHjb | 545897 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545897/mc.aMCPy8EG_tHjb125_CP_30_gamgam.py][Link]] | CP 30 |
+   | γγ | tHjb | 545898 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545898/mc.aMCPy8EG_tHjb125_CP_45_gamgam.py][Link]] | CP 45 |
+   | γγ | tHjb | 545899 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545899/mc.aMCPy8EG_tHjb125_CP_60_gamgam.py][Link]] | CP 60 |
+   | γγ | tHjb | 545900 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545900/mc.aMCPy8EG_tHjb125_CP_75_gamgam.py][Link]] | CP 75 |
+   | γγ | tHjb | 545901 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545901/mc.aMCPy8EG_tHjb125_CP_90_gamgam.py][Link]] | CP 90 |
+   | γγ | tHjb | 545902 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545902/mc.aMCPy8EG_tHjb125_yt_minus1_CP_0_gamgam.py][Link]] | yt minus1 ; CP 0 |
+   | γγ | tHjb | 545903 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545903/mc.aMCPy8EG_tHjb125_yt_plus0p5_CP_0_gamgam.py][Link]] | yt plus0p5 ; CP 0 |
+   | γγ | tHjb | 545904 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545904/mc.aMCPy8EG_tHjb125_yt_plus2_CP_0_gamgam.py][Link]] | yt plus2 ; CP 0 |
+   | γγ | tHjb | 545905 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545905/mc.aMCPy8EG_tHjb125_yt_plus2_CP_45_gamgam.py][Link]] | yt plus2 ; CP 45 |
+   | γγ | ttH | 545906 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545906/mc.aMCPy8EG_ttH125_CP_0_gamgam.py][Link]] | CP 0  |
+   | γγ | ttH | 545907 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545907/mc.aMCPy8EG_ttH125_CP_15_gamgam.py][Link]] | CP 15 |
+   | γγ | ttH | 545908 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545908/mc.aMCPy8EG_ttH125_CP_30_gamgam.py][Link]] | CP 30 |
+   | γγ | ttH | 545909 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545909/mc.aMCPy8EG_ttH125_CP_45_gamgam.py][Link]] | CP 45 |
+   | γγ | ttH | 545910 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545910/mc.aMCPy8EG_ttH125_CP_60_gamgam.py][Link]] | CP 60 |
+   | γγ | ttH | 545911 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545911/mc.aMCPy8EG_ttH125_CP_75_gamgam.py][Link]] | CP 75 |
+   | γγ | ttH | 545912 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545912/mc.aMCPy8EG_ttH125_CP_90_gamgam.py][Link]] | CP 90 |
+   | γγ | tWH | 545913 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545913/mc.aMCPy8EG_tWH125_CP_0_gamgam.py][Link]] | CP 0 |
+   | γγ | tWH | 545914 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545914/mc.aMCPy8EG_tWH125_CP_15_gamgam.py][Link]] | CP 15 |
+   | γγ | tWH | 545915 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545915/mc.aMCPy8EG_tWH125_CP_30_gamgam.py][Link]] | CP 30 |
+   | γγ | tWH | 545916 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545916/mc.aMCPy8EG_tWH125_CP_45_gamgam.py][Link]] | CP 45 |
+   | γγ | tWH | 545917 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545917/mc.aMCPy8EG_tWH125_CP_60_gamgam.py][Link]] | CP 60 |
+   | γγ | tWH | 545918 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545918/mc.aMCPy8EG_tWH125_CP_75_gamgam.py][Link]] | CP 75 |
+   | γγ | tWH | 545919 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545919/mc.aMCPy8EG_tWH125_CP_90_gamgam.py][Link]] | CP 90 |
+   | γγ | tWH | 545920 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545920/mc.aMCPy8EG_tWH125_yt_minus1_CP_0_gamgam.py][Link]] | yt minus1 ; CP 0 |
+   | γγ | tWH | 545921 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545921/mc.aMCPy8EG_tWH125_yt_plus0p5_CP_0_gamgam.py][Link]] | yt plus0p5 ; CP 0 |
+   | γγ | tWH | 545922 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545922/mc.aMCPy8EG_tWH125_yt_plus2_CP_0_gamgam.py][Link]] | yt plus2 ; CP 0 |
+   | γγ | tWH | 545923 | Madgraph_aMCatNLO + Pythia 8 | [[https://gitlab.cern.ch/atlas-physics/pmg/mcjoboptions/-/tree/master/545xxx/545923/mc.aMCPy8EG_tWH125_yt_plus2_CP_45_gamgam.py][Link]] | yt plus2 ; CP 45 |
+
 
     <!-- *********************************************************** -->
     <!-- Do NOT remove the remaining lines, but add requested info as appropriate -->
