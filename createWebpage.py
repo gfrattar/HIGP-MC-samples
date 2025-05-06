@@ -4,7 +4,7 @@ def main():
     
     print("Hello world")
     
-    listsToProcess = ['RML.txt']
+    listsToProcess = ['photons.txt']
     
     for ltp in listsToProcess:
         listOfSamples = helpers.ParseInputList(ltp)

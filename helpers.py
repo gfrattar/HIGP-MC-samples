@@ -86,6 +86,9 @@ def GetDecayMode(processShortName):
     if 'HWW_WWlvqq' in processShortName or 'WWqqlv' in processShortName:
         return 'WW*->lvqq'
     
+    if 'gammagamma' in processShortName or 'Hyy' in processShortName:
+        return 'γγ'
+    
     return ''
     #To add here the other decay modes based on the samples list I get from the other conveners
     
@@ -103,6 +106,9 @@ def GetSampleNotes(name, dsid):
 
     if 'VpTbias' in name:
         notes += 'Generation cross-section biased in V pT'
+
+    if 'cHWtil' in name or 'Polarisation' in name:
+        notes += name.split('_')[-1]
 
     if notes == '':
         return ' - '
